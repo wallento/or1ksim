@@ -232,6 +232,14 @@ uorreg_t mfspr(const uint16_t regno)
     if (!config.cpu.hardfloat)
       ret = 0;
     break;
+  case SPR_COREID:
+      // At the moment we statically return 0 as no multicore support
+      ret = 0;
+    break;
+  case SPR_NUMCORES:
+      // At the moment we statically return 1 as no multicore support
+      ret = 1;
+    break;
   default:
     /* Links to GPRS */
     if(regno >= 0x0400 && regno < 0x0420)
